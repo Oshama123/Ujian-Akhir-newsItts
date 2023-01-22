@@ -10,12 +10,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 16, 195, 192),
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Sistem Akademik Mahasiswa"),
-        automaticallyImplyLeading: false,
-      ),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

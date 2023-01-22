@@ -1,35 +1,63 @@
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:newsitts/pages/login.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({
-    Key? key,
-  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 16, 195, 192),
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("Sistem Akademik Mahasiswa"),
-        automaticallyImplyLeading: false,
-      ),
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Image.network(
-            'https://itts.ac.id/files/assets/img/slider/16ohI6xb61034q3165Ce1LQ06.png',
-            width: 400,
-            height: 400,
+        backgroundColor: Color.fromARGB(255, 215, 215, 215),
+        appBar: AppBar(
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Login(),
+                    ));
+              },
+              icon: Icon(
+                Icons.logout,
+                color: Color.fromARGB(255, 118, 118, 118),
+              ),
+            ),
+          ],
+          elevation: 5,
+          leading: Container(
+            child: Image.asset(
+              'assets/images/logo.png',
+            ),
           ),
-          const Text("Institut Teknologi Tangerang Selatan",
+          centerTitle: false,
+          title: Text("NEWS",
               style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  color: Color.fromARGB(255, 13, 30, 44))),
-        ],
-      )),
-    );
+                fontWeight: FontWeight.w700,
+                fontSize: 25,
+                color: Color.fromARGB(255, 8, 67, 134),
+              )),
+          automaticallyImplyLeading: false,
+          backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        ),
+        body: CarouselSlider(
+          options: CarouselOptions(height: 230.0),
+          items: [1, 2, 3, 4, 5].map((i) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: EdgeInsets.symmetric(horizontal: 2.0),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/gambar1.png',
+                      width: 420,
+                    ),
+                  ),
+                );
+              },
+            );
+          }).toList(),
+        ));
   }
 }
