@@ -27,7 +27,7 @@ class Dashboard extends StatelessWidget {
           elevation: 5,
           leading: Container(
             child: Image.asset(
-              'assets/images/logo.png',
+              'assets/images/logoSmall.png',
             ),
           ),
           centerTitle: false,
