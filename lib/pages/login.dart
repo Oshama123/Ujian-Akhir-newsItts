@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
+import 'package:newsitts/pages/account.dart';
 import 'package:newsitts/pages/dashboard.dart';
+import 'package:newsitts/pages/home.dart';
 
 class Login extends StatelessWidget {
   const Login({
@@ -32,49 +34,56 @@ class Login extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                   color: Color.fromARGB(255, 13, 30, 44))),
           Padding(padding: EdgeInsets.only(bottom: 50.0)),
-          TextField(
-            autocorrect: true,
-            keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.next,
-            decoration: InputDecoration(
-              isDense: true,
-              contentPadding: EdgeInsets.all(20.0),
-              label: Text("Masukkan Username"),
-              icon: Icon(Icons.person),
-              border: OutlineInputBorder(
-                borderRadius: new BorderRadius.circular(10.0),
-              ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  autocorrect: true,
+                  keyboardType: TextInputType.emailAddress,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    contentPadding: EdgeInsets.all(20.0),
+                    label: Text("Masukkan Username"),
+                    icon: Icon(Icons.person),
+                    border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(10.0),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextField(
+                  autocorrect: false,
+                  obscureText: true,
+                  textInputAction: TextInputAction.next,
+                  decoration: InputDecoration(
+                    isDense: true,
+                    contentPadding: EdgeInsets.all(20.0),
+                    label: Text("Masukkan Password"),
+                    icon: Icon(Icons.key),
+                    border: OutlineInputBorder(
+                      borderRadius: new BorderRadius.circular(10.0),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Home(),
+                          ));
+                    },
+                    child: Text("Login")),
+              ],
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextField(
-            autocorrect: false,
-            obscureText: true,
-            textInputAction: TextInputAction.next,
-            decoration: InputDecoration(
-              isDense: true,
-              contentPadding: EdgeInsets.all(20.0),
-              label: Text("Masukkan Password"),
-              icon: Icon(Icons.key),
-              border: OutlineInputBorder(
-                borderRadius: new BorderRadius.circular(10.0),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Dashboard(),
-                    ));
-              },
-              child: Text("Login")),
+          )
         ],
       )),
     );
