@@ -14,17 +14,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int selectedIndex = 1;
+  int selectedIndex = 0;
   final pilihPageWidget = [
     Dashboard(),
-    Account(),
     NewsSection(),
+    Account(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         actions: [
           IconButton(
             onPressed: () {
@@ -34,26 +34,32 @@ class _HomeState extends State<Home> {
                     builder: (context) => Dashboard(),
                   ));
             },
-            icon: Image.asset("assets/images/logoSmall.png"),
+            icon: Icon(
+              Icons.logout,
+              color: Color.fromARGB(255, 79, 81, 83),
+            ),
           ),
         ],
         leading: SizedBox(),
         centerTitle: false,
-        title: Text("NEWS"),
+        title: Text("NEWS",
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: Color.fromARGB(255, 5, 51, 105))),
       ),
       body: Center(
         child: pilihPageWidget.elementAt(selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.blue,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.black,
+          backgroundColor: Color.fromARGB(255, 215, 223, 218),
+          selectedItemColor: Color.fromARGB(255, 8, 22, 38),
+          unselectedItemColor: Color.fromARGB(255, 107, 106, 106),
           currentIndex: selectedIndex,
           onTap: onItemTapped,
           items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.schedule), label: "Jadwal Kuliah"),
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.newspaper), label: "News"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profil"),
           ]),
     );

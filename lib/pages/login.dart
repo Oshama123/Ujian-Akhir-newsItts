@@ -1,8 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 import "package:flutter/material.dart";
-import 'package:flutter/services.dart';
-import 'package:newsitts/pages/account.dart';
-import 'package:newsitts/pages/dashboard.dart';
 import 'package:newsitts/pages/home.dart';
 
 class Login extends StatelessWidget {
