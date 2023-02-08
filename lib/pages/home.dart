@@ -25,13 +25,17 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        title: Image.asset(
+          "assets/images/logoSmall2.png",
+          width: 90.0,
+        ),
         actions: [
           IconButton(
             onPressed: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Dashboard(),
+                    builder: (context) => Login(),
                   ));
             },
             icon: Icon(
@@ -40,13 +44,6 @@ class _HomeState extends State<Home> {
             ),
           ),
         ],
-        leading: SizedBox(),
-        centerTitle: false,
-        title: Text("NEWS",
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w700,
-                color: Color.fromARGB(255, 5, 51, 105))),
       ),
       body: Center(
         child: pilihPageWidget.elementAt(selectedIndex),

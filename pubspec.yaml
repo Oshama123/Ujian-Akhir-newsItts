@@ -26,6 +26,7 @@ dependencies:
   flutter:
     sdk: flutter
   carousel_slider: ^4.2.1
+  shimmer: ^2.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -59,6 +60,7 @@ flutter:
      - assets/images/gambar1.png
      - assets/images/logo.png
      - assets/images/logoSmall.png
+     - assets/images/logoSmall2.png
      - assets/images/bg1.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
